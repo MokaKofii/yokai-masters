@@ -41,7 +41,9 @@ public class FighterStats : MonoBehaviour, IComparable
    private float xNewHealthScale;
    private float xNewMagicScale;
 
-   private void Start()
+   private GameObject GameControllerObj;
+
+   void Awake()
    {
         healthTransform = healthFill.GetComponent<RectTransform>();
         healthScale = healthFill.transform.localScale;
@@ -51,6 +53,8 @@ public class FighterStats : MonoBehaviour, IComparable
 
         startHealth = health;
         startMagic = magic; //Again, this might be erased if the Japanese quiz is successfully implemented
+
+        GameControllerObj = GameObject.Find("GameControllerObject");
    }
 
    public void ReceiveDamage(float damage)
@@ -60,26 +64,51 @@ public class FighterStats : MonoBehaviour, IComparable
 
         //Set damage text
 
-        if(health < 1)
+        if(health <= 0)
         {
             dead = true;
             gameObject.tag = "Dead";
             Destroy(healthFill);
             Destroy(gameObject);
-        } else
+        } else if (damage > 0)
         {
             xNewHealthScale = healthScale.x * (health / startHealth);
             healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
         }
+        if(damage > 0)
+        {
+        GameControllerObj.GetComponent<GameController>().battleText.gameObject.SetActive(true);
+        GameControllerObj.GetComponent<GameController>().battleText.text = damage.ToString();
+        }
+        Invoke("ContinueGame", 2);
    }
 
    public void updateMagicFill(float cost)
    {
+        if(cost > 0)
+        {
         magic = magic - cost;
         xNewMagicScale = magicScale.x * (magic / startMagic);
         magicFill.transform.localScale = new Vector2(xNewMagicScale, magicScale.y);
+        }
+
    }
    
+   public bool GetDead()
+   {
+     return dead;
+   }
+
+   void ContinueGame()
+   {
+     GameObject.Find("GameControllerObject").GetComponent<GameController>().NextTurn();
+   }
+
+   public void CalculateNextTurn(int currentTurn)
+   {
+     nextActTurn = currentTurn + Mathf.CeilToInt(100f / speed);
+   }
+
    public int CompareTo(object otherStats)
    {
      int nex = nextActTurn.CompareTo(((FighterStats)otherStats).nextActTurn);

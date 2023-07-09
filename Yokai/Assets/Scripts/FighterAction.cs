@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class FighterAction : MonoBehaviour
 {
@@ -19,7 +18,7 @@ public class FighterAction : MonoBehaviour
 
     private GameObject currentAttack;
 
-    private void Start()
+    void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         enemysnake = GameObject.FindGameObjectWithTag("EnemySnake");
