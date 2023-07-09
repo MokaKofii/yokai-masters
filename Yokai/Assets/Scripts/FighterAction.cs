@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FighterAction : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class FighterAction : MonoBehaviour
         {
             victim = enemysnake;
         }
-        if(btn.CompareTo("light") == 0)
+        if (btn.CompareTo("light") == 0)
         {
             lightspellPrefab.GetComponent<MoveScript>().Attack(victim);
         } else if(btn.CompareTo("heavy") == 0)

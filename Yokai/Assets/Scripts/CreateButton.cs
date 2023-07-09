@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CreateButton : MonoBehaviour
 {
     [SerializeField]
-    private bool spelllone;
+    private bool spellone;
 
     private GameObject player;
     void Start()

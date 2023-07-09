@@ -520,7 +520,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -200}
+  m_AnchoredPosition: {x: 0, y: -200.00003}
   m_SizeDelta: {x: 0, y: -400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &419088357
@@ -732,9 +732,8 @@ GameObject:
   - component: {fileID: 642043079}
   - component: {fileID: 642043078}
   - component: {fileID: 642043082}
-  - component: {fileID: 642043081}
-  - component: {fileID: 642043084}
   - component: {fileID: 642043083}
+  - component: {fileID: 642043081}
   m_Layer: 0
   m_Name: SnakeEnemy
   m_TagString: EnemySnake
@@ -827,10 +826,10 @@ MonoBehaviour:
   healthFill: {fileID: 2086150444}
   magicFill: {fileID: 1644733576}
   health: 100
-  magic: 40
+  magic: 25
   lightspell: 10
   heavyspell: 5
-  defense: 10
+  defense: 5
   speed: 7
   experience: 0
   nextActTurn: 0
@@ -870,21 +869,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &642043084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642043077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 124e24b07b9e1ac44a2e7e9a51c6ed26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightspellPrefab: {fileID: 1343726984}
-  heavyspellPrefab: {fileID: 1079855799}
-  faceIcon: {fileID: 0}
 --- !u!1 &649512505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,7 +1409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d77ab65f08b48d4dbeb6fc483fe1c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spelllone: 0
+  spellone: 0
 --- !u!114 &788656694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1560,7 +1544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d77ab65f08b48d4dbeb6fc483fe1c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spelllone: 0
+  spellone: 0
 --- !u!114 &799224297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1913,8 +1897,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1326701685}
     - target: {fileID: 7451220308680741258, guid: f56dcf4f86696a74ea1161c47a7a758a, type: 3}
+      propertyPath: magicCost
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451220308680741258, guid: f56dcf4f86696a74ea1161c47a7a758a, type: 3}
       propertyPath: magicAttack
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7451220308680741259, guid: f56dcf4f86696a74ea1161c47a7a758a, type: 3}
       propertyPath: m_RootOrder
@@ -2184,7 +2172,7 @@ MonoBehaviour:
   magicFill: {fileID: 1945818723}
   health: 100
   magic: 30
-  lightspell: 5
+  lightspell: 10
   heavyspell: 30
   defense: 5
   speed: 5
@@ -3252,4 +3240,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d77ab65f08b48d4dbeb6fc483fe1c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spelllone: 0
+  spellone: 0

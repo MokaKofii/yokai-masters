@@ -17,13 +17,13 @@ public class GameController : MonoBehaviour
     {
         battleMenu = GameObject.Find("ActionMenu");
     }
-
     void Start()
     {
         fighterStats = new List<FighterStats>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         FighterStats currentFighterStats = player.GetComponent<FighterStats>();
         currentFighterStats.CalculateNextTurn(0);
+        fighterStats.Add(currentFighterStats);
 
         GameObject enemysnake = GameObject.FindGameObjectWithTag("EnemySnake");
         FighterStats currentEnemyStats = enemysnake.GetComponent<FighterStats>();
@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour
         fighterStats.Add(currentEnemyStats);
 
         fighterStats.Sort();
-        this.battleMenu.SetActive(false);
+
 
         NextTurn();
 
@@ -53,6 +53,7 @@ public class GameController : MonoBehaviour
                 this.battleMenu.SetActive(true);
             } else
             {
+                this.battleMenu.SetActive(false);
                 string attackType = Random.Range(0, 2) == 1 ? "light" : "heavy";
                 currentUnit.GetComponent<FighterAction>().SelectAttack(attackType);
             }

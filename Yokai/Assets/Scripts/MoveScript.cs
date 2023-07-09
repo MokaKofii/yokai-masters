@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MoveScript : MonoBehaviour
 {
@@ -28,8 +27,6 @@ public class MoveScript : MonoBehaviour
    [SerializeField]
    private float maxDefenseMultiplier;
 
-   [SerializeField]
-   
    private FighterStats attackerStats;
    private FighterStats targetStats;
    private float damage = 0.0f;
@@ -39,7 +36,7 @@ public class MoveScript : MonoBehaviour
    {
         attackerStats = owner.GetComponent<FighterStats>();
         targetStats = victim.GetComponent<FighterStats>();
-        if(attackerStats.magic >= magicCost)
+        if (attackerStats.magic >= magicCost)
         {
             float multiplier = Random.Range(minAttackMultiplier, maxAttackMultiplier);
 
