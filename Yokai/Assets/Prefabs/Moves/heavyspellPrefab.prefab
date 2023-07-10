@@ -45,11 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
-  animationName: SpellHeavy
+  animationName: HeavySpell
   magicAttack: 1
   magicCost: 10
   minAttackMultiplier: 1
   maxAttackMultiplier: 1.5
   minDefenseMultiplier: 0.2
   maxDefenseMultiplier: 1
-  attackerStats: {fileID: 0}

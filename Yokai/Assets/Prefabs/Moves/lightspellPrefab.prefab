@@ -45,11 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
-  animationName: SpellLight
+  animationName: LightSpell
   magicAttack: 0
   magicCost: 0
   minAttackMultiplier: 0.5
   maxAttackMultiplier: 1.5
   minDefenseMultiplier: 0.5
   maxDefenseMultiplier: 1
-  attackerStats: {fileID: 0}
